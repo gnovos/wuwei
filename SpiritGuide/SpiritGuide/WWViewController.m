@@ -14,6 +14,8 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UITextView *glass;
 
 - (IBAction)spectrum:(id)sender;
+- (IBAction)matrix:(id)sender;
+- (IBAction)sensitivity:(id)sender;
 
 @end
 
@@ -24,13 +26,8 @@ WW_INIT_VIEW_CONTROLLER
 - (void) setup {
         
     [[WWSensorium instance] setMedium:^(NSString *message) {
-        CGPoint bottom = CGPointMake(0, self.glass.contentSize.height - self.glass.bounds.size.height);
-        CGPoint offset = self.glass.contentOffset;
-        BOOL scroll = bottom.y - offset.y < 50.0f;
-        [self.glass setText:[self.glass.text stringByAppendingFormat:@"%@\n\n", message]];
-        if (scroll) {
-            [self.glass scrollRangeToVisible:NSMakeRange(self.glass.text.length, 0)];
-        }
+        [self.glass setText:[self.glass.text stringByAppendingFormat:@"%@", message]];
+        [self.glass scrollRangeToVisible:NSMakeRange(self.glass.text.length, 0)];
     }];
 }
 
@@ -46,9 +43,18 @@ WW_INIT_VIEW_CONTROLLER
 - (IBAction)spectrum:(id)sender {
     
     UISegmentedControl* filter = (UISegmentedControl*)sender;
-    
     [[WWSensorium instance] setMode:filter.selectedSegmentIndex];
     
+}
+
+- (IBAction)matrix:(id)sender {
+    UISegmentedControl* filter = (UISegmentedControl*)sender;
+    [[WWSensorium instance] setMatrix:filter.selectedSegmentIndex];
+}
+
+- (IBAction)sensitivity:(id)sender {
+    UISlider* sensitivity = (UISlider*)sender;
+    [[WWSensorium instance] setSensitivity:MIN(0.99f, MAX(0.01f, sensitivity.value))];
 }
 
 @end

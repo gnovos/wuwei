@@ -7,12 +7,23 @@
 //
 
 typedef enum {
-   WWSensoriumModeOff = 0,
-   WWSensoriumModeFull,
-   WWSensoriumModeBio,
-   WWSensoriumModeForce,
-   WWSensoriumModes
+    WWSensoriumModeOff = 0,
+    WWSensoriumModeFull,
+    WWSensoriumModeBio,
+    WWSensoriumModeForce,
+    WWSensoriumModes
 } WWSensoriumMode;
+
+typedef enum {
+    WWTranslationMatrixRaw = 0,
+    WWTranslationMatrixColor,
+    WWTranslationMatrixFlip,
+    WWTranslationMatrixChars,
+    WWTranslationMatrixWords,
+    WWTranslationMatrixPhrases,
+    WWTranslationMatrices
+} WWTranslationMatrix;
+
 
 typedef void (^WWMedium)(NSString* message);
 
@@ -23,6 +34,7 @@ WW_SINGLETON_INTERFACE(WWSensorium*)
 @property (nonatomic, strong) NSMutableString* vapors;
 @property (nonatomic, strong) WWMedium medium;
 @property (nonatomic, assign) WWSensoriumMode mode;
+@property (nonatomic, assign) WWTranslationMatrix matrix;
 @property (nonatomic, assign) CGFloat sensitivity;
 
 - (void) start;

@@ -77,6 +77,8 @@ WW_INIT_SINGELTON
     
     if ((ch == ' ' || ch == '?' || ch == '!' || ch == '\n') || (ch > 'a' && ch < 'z') || (ch > 'A' && ch < 'Z')) {
         return [NSString stringWithFormat:@"%c", ch];
+    } else {
+        return [@[@"", @"", @" ", @" ", @" ", @" ", @"\n", @"\n"] objectAtIndex:WWRand(8)];
     }
     
     return nil;
@@ -87,12 +89,15 @@ WW_INIT_SINGELTON
     NSString* glyph = [rune description];
 
     int index = [[glyph substringFromIndex:glyph.length - 6] intValue];
+    
+    NSString* nxt = @"";
         
     while (index > total) {
         index -= total;
+        nxt = @"\n";
     }
     
-    return [self selectString:[NSString stringWithFormat:@"SELECT word FROM words WHERE dex = %d", index]];
+    return [nxt stringByAppendingString:[self selectString:[NSString stringWithFormat:@"SELECT word FROM words WHERE dex = %d", index]]];
 }
 
 @end

@@ -12,8 +12,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="Bys-nq-TT9">
-                                <rect key="frame" x="16" y="54" width="289" height="44"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="Bys-nq-TT9">
+                                <rect key="frame" x="16" y="14" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Off"/>
@@ -21,25 +21,42 @@
                                     <segment title="Bio"/>
                                     <segment title="Force"/>
                                 </segments>
+                                <color key="tintColor" red="0.50646548057823126" green="0.53561463647959184" blue="0.38122141591584086" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="spectrum:" destination="2" eventType="touchUpInside" id="CN3-rq-53L"/>
+                                    <action selector="spectrum:" destination="2" eventType="valueChanged" id="QQv-ug-DfC"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spectrum Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZWI-EW-g9m">
-                                <rect key="frame" x="96" y="15" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Listening ..." textAlignment="center" id="ceV-69-L9P">
-                                <rect key="frame" x="40" y="123" width="240" height="391"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="..." textAlignment="center" id="ceV-69-L9P">
+                                <rect key="frame" x="16" y="163" width="289" height="351"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.25" alpha="0.75" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.81455277423469385" green="0.78516871072949868" blue="0.075781356119575108" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="3" id="GlG-Df-QXt">
+                                <rect key="frame" x="16" y="65" width="289" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Raw"/>
+                                    <segment title="Color"/>
+                                    <segment title="Flip"/>
+                                    <segment title="Chars"/>
+                                    <segment title="Word"/>
+                                    <segment title="Phrase"/>
+                                </segments>
+                                <color key="tintColor" red="0.64028619260204089" green="0.53492327261704509" blue="0.13805300238473744" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="matrix:" destination="2" eventType="valueChanged" id="Ktv-GW-97J"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" id="Y67-y9-ccG">
+                                <rect key="frame" x="14" y="111" width="293" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sensitivity:" destination="2" eventType="valueChanged" id="vkv-R0-VcQ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
