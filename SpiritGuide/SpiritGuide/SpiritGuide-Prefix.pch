@@ -1,0 +1,21 @@
+//
+// Prefix header for all source files of the 'SpiritGuide' target in the 'SpiritGuide' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import <CoreMotion/CoreMotion.h>
+    #import <CoreLocation/CoreLocation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import <sqlite3.h>
+
+    #import "WWHeader.h"
+#endif
